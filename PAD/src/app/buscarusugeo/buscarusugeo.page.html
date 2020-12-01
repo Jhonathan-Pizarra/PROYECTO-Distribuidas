@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Historial de búsqueda por usuario y su geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="formulario">
+    <ion-item-sliding *ngFor="let usuario of usuarios">
+      <h2>Usuario: {{ usuario.nombre }} {{ usuario.apellido }}</h2>
+    <ion-item-sliding *ngFor="let todo of todos">
+      <ion-item *ngIf="todo.uidusuario==usuario.uid">
+        <ion-label>
+          <h2>Búsqueda: {{ todo.busqueda }}</h2>
+          <h2>Dirección: {{ todo.direccion }}</h2>
+        </ion-label>
+      </ion-item> 
+    </ion-item-sliding>
+  </ion-item-sliding>
+  </ion-list>
+  
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="onLogin(email, password)" class="formulario">
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required formControlName="emailControl"  [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required formControlName="passwordControl" [(ngModel)]="contr"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!formGroup.valid" type="submit" expand="block">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="ion-text-end">
+          <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+        </p>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-row class="formulario">
+    <ion-col>
+      <p class="ion-text-end">
+        <a routerLink="/register">Crear una cuenta</a>
+      </p>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

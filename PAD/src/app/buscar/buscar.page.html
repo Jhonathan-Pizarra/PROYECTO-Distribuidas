@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+     <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Buscar canción
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-row class="formulario">
+    <ion-col size="10">
+      <div>
+        <ion-input type="text" 
+      #termino placeholder="Nombre de la canción"></ion-input>
+      </div>
+    </ion-col>
+    <ion-col >
+      <div>
+        <button  item-end class="btn_eye_icon"  (click)="buscar(termino)">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+      </div>
+    </ion-col>
+    
+  </ion-row>
+
+  <ion-card *ngFor="let artista of artistas">
+    <ion-card-header>
+      <img [src]="artista.album.images[0].url"/>
+      <ion-card-title>{{ artista.name }}</ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+</ion-content>

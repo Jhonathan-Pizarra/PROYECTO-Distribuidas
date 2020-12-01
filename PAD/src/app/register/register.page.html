@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="onRegister(nombre,apellido,email, password)" class="formulario">
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" #nombre required formControlName="nombreControl"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" #apellido required formControlName="apellidoControl"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required formControlName="emailControl"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required formControlName="passwordControl"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!formGroup.valid" type="submit" expand="block">
+          Registrarse
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

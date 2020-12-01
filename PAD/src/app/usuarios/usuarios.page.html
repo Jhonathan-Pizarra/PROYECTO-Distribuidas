@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+     </ion-buttons>
+    <ion-title>
+      Lista de Usuarios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ <ion-content>
+      <ion-list>
+        <ion-item-sliding *ngFor="let todo of todos">
+          <ion-item button [routerLink]="['/detalle', todo.id]">
+            <ion-label>
+              <h2>Nombre: {{ todo.nombre }}</h2>
+              <h2>Apellido: {{ todo.apellido }}</h2>
+              <h2>Correo :{{ todo.correo }}</h2>
+            </ion-label>
+          </ion-item> 
+        </ion-item-sliding>
+      </ion-list>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="/detalle" routerDirection="forward">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+ </ion-content>
